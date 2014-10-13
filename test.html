@@ -8,8 +8,8 @@
       var urlToTest = 'http://www.picturesnew.com/media/images/image-background.jpg';
 
       var request = new XMLHttpRequest();
-      request.open('POST', 'http://localhost:9292', true);
-      // request.open('POST', 'http://imageornot.herokuapp.com/', true);
+      // request.open('POST', 'http://localhost:9292', true);
+      request.open('POST', 'http://imageornot.herokuapp.com/', true);
       request.setRequestHeader('Content-type', 'application/json')
 
       request.onreadystatechange = function() {
