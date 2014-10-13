@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test meh!</title>
+  </head>
+  <body>
+    <script>
+      var urlToTest = 'http://www.picturesnew.com/media/images/image-background.jpg';
+
+      var request = new XMLHttpRequest();
+      request.open('POST', 'http://localhost:9292', true);
+      request.setRequestHeader('Content-type', 'application/json')
+
+      request.onreadystatechange = function () {
+        if (request.readyState != 4 || request.status != 200) return;
+
+        console.log(request.responseText, request)
+
+        var result = JSON.parse(request.responseText);
+
+        if (result.is_image) {
+          alert('Yay, ' + urlToTest + ' is image!');
+        } else {
+          alert('OH NOES, ' + urlToTest + ' is NOT image!');
+        }
+      };
+
+      request.send(JSON.stringify({ url: urlToTest }));
+    </script>
+  </body>
+</html>
