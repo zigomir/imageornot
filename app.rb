@@ -1,6 +1,3 @@
-require 'JSON'
-require 'faraday'
-
 class ImageOrNot < Sinatra::Application
 
   options '/' do
