@@ -12,7 +12,8 @@ class ImageOrNot < Sinatra::Application
     json is_image: false unless data['url']
 
     begin
-      response = Faraday.head data['url']
+      # get method is more safe than head to get correct content type
+      response = Faraday.get data['url']
       content_type = response.headers[:'content-type']
 
       json is_image: is_image?(content_type)
